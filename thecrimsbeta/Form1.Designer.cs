@@ -42,6 +42,7 @@
             this.cbTickets = new System.Windows.Forms.CheckBox();
             this.tbMinTickets = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // button1
@@ -176,11 +177,20 @@
             this.label4.TabIndex = 13;
             this.label4.Text = "Jih Pusti";
             // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(153, 143);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(121, 97);
+            this.listView1.TabIndex = 14;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(292, 273);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbMinTickets);
             this.Controls.Add(this.cbTickets);
@@ -219,6 +229,7 @@
         private System.Windows.Forms.CheckBox cbTickets;
         private System.Windows.Forms.TextBox tbMinTickets;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ListView listView1;
     }
 }
 

@@ -92,14 +92,16 @@ namespace thecrimsbeta
 
         public Form1()
         {
-            OpenDriver();
-            InitializeComponent();  
+            InitializeComponent();
+            userSelect();
+            OpenFriefox();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
+
 
         //AKCIJA! BUTTON
         private void button1_Click(object sender, EventArgs e)
@@ -109,7 +111,16 @@ namespace thecrimsbeta
 
             while (igraj)
             {
-                Login(tbUserName.Text, tbPassword.Text);
+                for (int a = 0; a < listView1.Items.Count; a++)
+                {
+                    if (listView1.Items[a].Checked == true)
+                    {
+                        string temp = listView1.Items[a].SubItems[0].Text;
+                        string temp1 = listView1.Items[a].SubItems[1].Text;
+                        Login(temp, temp1);
+                    }
+                }
+              //  Login(tbUserName.Text, tbPassword.Text);
                 System.Threading.Thread.Sleep(5000);
                 try
                 {
@@ -137,7 +148,7 @@ namespace thecrimsbeta
             player.SetSpostovanje();
             player.SetElvlP();
 
-
+       
             while (true)
             {
                 Rop rop = new Rop(driver);
@@ -210,6 +221,32 @@ namespace thecrimsbeta
             
         }
 
+        private void userSelect()
+        {
+            List<string> user = new List<string> { "slamek", "bokota" };
+            List<string> pass = new List<string> { "7da3dc8c44b8", "6ecb7b40a41a" };
+            listView1.MultiSelect = true;
+            listView1.CheckBoxes = true;
+            listView1.View = View.Details;
+            listView1.GridLines = true;
+            listView1.FullRowSelect = true;
+            listView1.Columns.Add("User", 100);
+            listView1.Columns.Add("Password", 100);
+            string[] arr = new string[4];
+            ListViewItem itm;
+            var c = user.Count;
+            int i = 0;
+            while (i < c)
+            {
+                arr[0] = user[i];
+                arr[1] = pass[i];
+                itm = new ListViewItem(arr);
+                listView1.Items.Add(itm);
+                i++;
+
+            }
+
+        }
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             tbUserName.Text = "samek";
