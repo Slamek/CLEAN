@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Firefox;
 using System.Collections.Generic;
 
 namespace thecrimsbeta
@@ -40,6 +41,18 @@ namespace thecrimsbeta
             //profil.AddArguments("user-data-dir=C:/Users/PALACE/AppData/Local/Google/Chrome/User Data/Profile 2");
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
+        }
+        public void OpenFriefox()
+        {
+
+            FirefoxProfile profile = new FirefoxProfile();
+            profile.SetPreference("network.proxy.http", "localhost");
+            profile.SetPreference("network.proxy.type", 1);
+            profile.SetPreference("network.proxy.socks", "212.91.115.66");
+            profile.SetPreference("network.proxy.socks_port", 4145);
+            profile.SetPreference("network.proxy.socks_version", 4);
+            driver = new FirefoxDriver(profile);
+            driver.Navigate().GoToUrl("http://bbc.co.uk");
         }
         public void Login(string username,string password)
         {
